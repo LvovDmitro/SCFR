@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the accepted NeurIPS 2026 paper below. Public repository: https://github.com/LvovDmitro/SCFR"
+title: "SCFR: Source-Causal Control of Historical Context in Longitudinal Radiology Report Generation"
+type: software
+authors:
+  - family-names: Lvov
+    given-names: Dmitry
+  - family-names: Pershin
+    given-names: Ilya
+license: MIT
+preferred-citation:
+  type: conference-paper
+  title: "Source-Causal Control of Historical Context in Longitudinal Radiology Report Generation"
+  authors:
+    - family-names: Lvov
+      given-names: Dmitry
+    - family-names: Pershin
+      given-names: Ilya
+  year: 2026
+  conference:
+    name: "Neural Information Processing Systems (NeurIPS 2026)"
+  notes: "Accepted poster, paper 21649; forthcoming. DOI and final proceedings metadata are not yet provided."

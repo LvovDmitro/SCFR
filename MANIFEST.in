@@ -1,0 +1,5 @@
+include LICENSE README.md REPRODUCIBILITY.md CITATION.cff SOURCE_MANIFEST.json CLI_INVENTORY.json requirements-cpu-verification.txt
+recursive-include evidence *.md *.json
+recursive-include verification *.json *.txt
+recursive-include tests *.py
+recursive-include external *.md

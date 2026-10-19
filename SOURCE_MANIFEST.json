@@ -1,0 +1,356 @@
+{
+  "schema": "scfr-release-source-manifest-v1",
+  "preparation_date": "2026-10-19",
+  "source_git_commit": "9f4b725d05a2cee84fd2f98f0b069ee20e5a5e51",
+  "source_tree_state": "dirty; per-file source hashes are authoritative",
+  "source_repository_visibility": "private (read-only metadata verified)",
+  "intended_repository": "https://github.com/LvovDmitro/SCFR",
+  "normalization": "Original UTF-8 source text copied unchanged except line endings normalized to LF and final newline; release hashes supplied by verification inventory.",
+  "files": [
+    {
+      "path": "LICENSE",
+      "source_sha256": "ffb532b578ab86803024ab4aecd922579225e72ee2376872851967327e931600"
+    },
+    {
+      "path": "scripts/analyze_source_causal_arms.py",
+      "source_sha256": "15da06c6f0b7129152bd98b82dfad6a2986f6f7f92b4674ae2e5f3ae7fa69b14"
+    },
+    {
+      "path": "scripts/audit_prior_copy_temporal.py",
+      "source_sha256": "58b21b858f8949a87529a5d9c2e1b3ff1104b5c1ac417d9c472635c8075a514b"
+    },
+    {
+      "path": "scripts/source_causal_candidate_reranker.py",
+      "source_sha256": "7170d4b48ffaca56b705c926b6ce4f2f0a6954a1a83780a339fc1e2a46dd44d3"
+    },
+    {
+      "path": "scripts/source_causal_meta_controller.py",
+      "source_sha256": "fe96b276b5070808e43a768ef4757193f41a74f9fd58f35ab57b514309ca74db"
+    },
+    {
+      "path": "scripts/source_causal_per_finding_gate.py",
+      "source_sha256": "9f34b0227284bc21fc69350925e8734252576f8f208451f782500a30d1a5df5b"
+    },
+    {
+      "path": "scripts/source_causal_verifier.py",
+      "source_sha256": "633b16d2451a4e6310ce2fdd8f65927ea2535e34b635d13af991f959a02c2263"
+    },
+    {
+      "path": "scripts/source_causal_ledger_composer.py",
+      "source_sha256": "605003afd14d926f4619d96469b51a60f254344dc4eeea6096ef3bdf03d5ffd4"
+    },
+    {
+      "path": "scripts/source_causal_consensus_decode.py",
+      "source_sha256": "2202370ec8725b5be51c53decdff742def82f5341e016c9b269f0c4a2dac7c3c"
+    },
+    {
+      "path": "scripts/source_causal_composer_sweep.py",
+      "source_sha256": "7c389045b061dc82923d5b18e966d678f208223c67f9b0b326a6f817db7e78ac"
+    },
+    {
+      "path": "scripts/source_causal_pairwise_reranker.py",
+      "source_sha256": "9be5992b9ca6b28157a183a1ecfdaaaf7622bb1371d98091fdac9593146e9ea2"
+    },
+    {
+      "path": "scripts/source_causal_risk_selector.py",
+      "source_sha256": "cfab74456108ad7595ce886fed974ecdde9e327242ba0674711869a618221926"
+    },
+    {
+      "path": "scripts/source_causal_selective_prior_policy.py",
+      "source_sha256": "5c725754b073835175f0d0af4532bb94222b4f005679a81f6a9cb9d0456f75f8"
+    },
+    {
+      "path": "scripts/source_causal_corrector_gate.py",
+      "source_sha256": "980b89dfe81c1bc6b3b566fc1074f0ec080e60f9f96aedf31c47435237ca2e33"
+    },
+    {
+      "path": "scripts/source_causal_confirmatory_gate.py",
+      "source_sha256": "b100ba653bc35e02268b42aa8a83c01180101cadfb43808e361f70b1610dde7d"
+    },
+    {
+      "path": "scripts/source_causal_vulnerability_audit.py",
+      "source_sha256": "0f59517af40d6ddf5fdb691e0022215f567b9ce9fbf9fceedf1be84f5fb05083"
+    },
+    {
+      "path": "scripts/materialize_counterfactual_arms.py",
+      "source_sha256": "5d6a111237fe07ad9e02c71f2d4eb3a72121ca55f7f8b0cb166c877ae616c4a0"
+    },
+    {
+      "path": "scripts/merge_counterfactual_arm_predictions.py",
+      "source_sha256": "d0fcf543ae9f150722ba45f486cfb65df89bd2cd7ab63489df0e3d978ed578a6"
+    },
+    {
+      "path": "scripts/build_source_causal_meta_train_eval_pool.py",
+      "source_sha256": "cc5c54758fcda8406f2f32a2eb9bd4b6b069c74e33a4a3c74df6a4bae8987ddd"
+    },
+    {
+      "path": "scripts/build_source_causal_preference_pairs.py",
+      "source_sha256": "f6649bb3c12ebbc6697fcda6314a7c2be9baeee2f56b45d971723ae041daa3da"
+    },
+    {
+      "path": "scripts/build_source_causal_self_correcting_pairs.py",
+      "source_sha256": "4c1a2c40f7a48e022af7aba562b2a84cba6b9c3f92f24b42b3de564fe758f3e7"
+    },
+    {
+      "path": "scripts/apply_frozen_scfr_controller.py",
+      "source_sha256": "ca528514d957626815e3f9af69c61374cb224c19eee0802365b678fe4729e8c6"
+    },
+    {
+      "path": "scripts/apply_scfr_meta_parity_gate.py",
+      "source_sha256": "2c8aa00f865aa5a24d38582e7383c50b713835f9e9b80d2f968430ccf7497f64"
+    },
+    {
+      "path": "scripts/assign_scfr_subject_transfer_splits.py",
+      "source_sha256": "ba3feb8008050d29d6cdcb0a6e4421964be639386ed6be930a1a452d4e2740f9"
+    },
+    {
+      "path": "scripts/analyze_scfr_cross_generator_transfer.py",
+      "source_sha256": "646d1238a0a99919096e1b5c3bba3ee0d4f8e1ff882c6d515908f96f32dc3b97"
+    },
+    {
+      "path": "scripts/run_scfr_cross_generator_oof_rotation.py",
+      "source_sha256": "5d0765f7ac737494ae64356d3ed87c7f33e4f5549be0798af6d8f239bda34f86"
+    },
+    {
+      "path": "scripts/analyze_scfr_selector_baselines.py",
+      "source_sha256": "51adf1c8041ed3130f3d0b262f1148f3180308ef43e54de5a459fb3628becd45"
+    },
+    {
+      "path": "scripts/analyze_scfr_full_stress_baselines.py",
+      "source_sha256": "92d770a7a89227f74c07af792e8e7cdfef7803030adc165c424662717067724f"
+    },
+    {
+      "path": "scripts/analyze_scfr_copy_context_decomposition.py",
+      "source_sha256": "ee63483d9306b20723594515c6a4a778e33aab06b704b9ec7caf463ae27cc42b"
+    },
+    {
+      "path": "scripts/analyze_scfr_r01_task_a.py",
+      "source_sha256": "55936b59352d211eb409c3b409e263a1d15f9da30d8f4f07068319258c1938d0"
+    },
+    {
+      "path": "scripts/analyze_scfr_r01_task_b.py",
+      "source_sha256": "9b39695a1d5fc0e771cd47addff4d3221d0479c83534141239910c93f42fdba8"
+    },
+    {
+      "path": "scripts/analyze_maira2_same_panel_prompt_results.py",
+      "source_sha256": "dd8201dc08ced0f415ca606ba91707d813b55444008b0a4e10be5cb03bb1e571"
+    },
+    {
+      "path": "scripts/audit_longitudinal_manifest.py",
+      "source_sha256": "70430c807c3ace9287cbc798daefbd3ae559be634cb080675034b0373bcc64b4"
+    },
+    {
+      "path": "scripts/audit_manifest_finding_distribution.py",
+      "source_sha256": "3ee6b5b1ff1b0e5ae4ea78c44e9bf029f8d06a11a0d2cb8f26b5001793959a32"
+    },
+    {
+      "path": "scripts/run_source_causal_corrector_eval.py",
+      "source_sha256": "a7cbbe0b2c967545945b6ecaa9bf4ba1dca8282e9cb920dcf29607b64824f468"
+    },
+    {
+      "path": "src/eval/evaluate_generators.py",
+      "source_sha256": "d8eb4dbe3558309986c6497c5d6b763caec325a47c21c92df5e66418e9136073"
+    },
+    {
+      "path": "src/eval/scfr_model_revisions.py",
+      "source_sha256": "fc03eac95b53cdb5c8f62fde4916cb7ec44b83ca591edea79990fa7f797a5394"
+    },
+    {
+      "path": "train/__init__.py",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "train/train_corrector_medgemma_multimodal.py",
+      "source_sha256": "050b73e5d2e1b6f905c8fbecf85c501dda749ace133ffe339e857a37ac14ab8d"
+    },
+    {
+      "path": "utils/__init__.py",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "utils/metrics_extended.py",
+      "source_sha256": "0925be9bc27ef6b1bde5bbf75af42febb85961da081a79e831ab8a2298dcb44b"
+    },
+    {
+      "path": "external/README.md",
+      "source_sha256": "96012ca45f9c77dc698520e93323e1c496990bcb88badc1c83164839ad3238fa"
+    },
+    {
+      "path": "models/r2gen_generator.py",
+      "source_sha256": "6d7dcffc5b14b1d8e6fd5085cd24834f2e8213d05e163c114a678a9764e3b6f9"
+    },
+    {
+      "path": "tests/test_source_causal_candidate_reranker.py",
+      "source_sha256": "6c935da940f3d77467fd571ed9f076438ab50c7d6f7e1e3c87850301258ac7ef"
+    },
+    {
+      "path": "tests/test_source_causal_meta_controller.py",
+      "source_sha256": "cee5af68eb33e5b62f7a7cebb51fdfa0b79b91ddb1d5b6f7557db3be7d4ccc63"
+    },
+    {
+      "path": "tests/test_source_causal_verifier.py",
+      "source_sha256": "0443412eb550aa625ce8d7cc978a0b8ff44416ff0a9501e4a5ef08d8392eb55a"
+    },
+    {
+      "path": "tests/test_source_causal_per_finding_gate.py",
+      "source_sha256": "b0d9538aeeb5614963b60ff897752397415463a58dbc64f6516cb95a149522a0"
+    },
+    {
+      "path": "tests/test_source_causal_ledger_composer.py",
+      "source_sha256": "645008fe4663b6a84c87f2f5f789d0cba12825e3ac0429656e318b928763f8fa"
+    },
+    {
+      "path": "tests/test_source_causal_consensus_decode.py",
+      "source_sha256": "62b8773da22ef51b196831421e3b1816bd9ffebcd112c7fbc4926d968e246640"
+    },
+    {
+      "path": "tests/test_source_causal_pairwise_reranker.py",
+      "source_sha256": "53302a324918a0057acd3d44da5ee482e7c789f7a489e8122cf1577588acbfd0"
+    },
+    {
+      "path": "tests/test_materialize_counterfactual_arms.py",
+      "source_sha256": "43b2bceda009414a27ae84a27beb3a25e90701bdf5f42bcc627c7a51c28cf588"
+    },
+    {
+      "path": "tests/test_merge_counterfactual_arm_predictions.py",
+      "source_sha256": "f31c2c4707ead1e74a2a553d69c0f0035d1e1141fdf0b99826f058f3a8ac65a3"
+    },
+    {
+      "path": "tests/test_source_causal_confirmatory_gate.py",
+      "source_sha256": "4e7dc81162607e3c218777998fbe6ea0445c978359caf3f2c275b5aef96b89ca"
+    },
+    {
+      "path": "src/generators/a3net_gen.py",
+      "source_sha256": "4d8f5c41ebef2a1764e89540d4a4a4968d3f295df4046fac0a86108a0c1e0ec1"
+    },
+    {
+      "path": "src/generators/base.py",
+      "source_sha256": "fe06f73caf7f148e02ed8205d527e8c6d7729aada596888b7ab043717844554c"
+    },
+    {
+      "path": "src/generators/biomedgpt_gen.py",
+      "source_sha256": "123a05ceee393dcddfa7b882c0e6d613129de7b13f1558c7450b2c0482b8fa13"
+    },
+    {
+      "path": "src/generators/chexagent_gen.py",
+      "source_sha256": "688dfb615e090488b9aa32a8557c632e8f0e01248bcab75f3b7677fbd948f1b5"
+    },
+    {
+      "path": "src/generators/chexone_gen.py",
+      "source_sha256": "c861e308ec7d438e3986bf9ce22577951d4e0b43b84b764137460b2af5f9e2ab"
+    },
+    {
+      "path": "src/generators/diffrrg_gen.py",
+      "source_sha256": "bbc75a26dd556951a8717db2a6019e3fdedf3163a81839eab48bcaa97a2d1e0e"
+    },
+    {
+      "path": "src/generators/factory.py",
+      "source_sha256": "3d0edb30215a78443ff219d84695b4a7a0d5c677e5bed30a33e573966594c448"
+    },
+    {
+      "path": "src/generators/internvl_med_gen.py",
+      "source_sha256": "b4327430f9b11e8285064fc5954ee1efd03628afff6e25dd22296e1c468c32eb"
+    },
+    {
+      "path": "src/generators/libra_gen.py",
+      "source_sha256": "fd1985c872e8d39b4d01106d69093d9bd2ec9d50a1c261fa8eb46ca5f6b36a2e"
+    },
+    {
+      "path": "src/generators/llava_med_gen.py",
+      "source_sha256": "f799cf887237dcb9d98667fd58881f43f59ebd18b12043fecf1a803158eea4e9"
+    },
+    {
+      "path": "src/generators/llava_rad_gen.py",
+      "source_sha256": "38ff284076fece576477464b02442a2b24981d00c303cfc1640eff81468c9204"
+    },
+    {
+      "path": "src/generators/llm_rg4_gen.py",
+      "source_sha256": "77bdba48edb46ad15b95f307ee5b03e29f600bba3586db66af24e4d3ff689d2e"
+    },
+    {
+      "path": "src/generators/maira2_gen.py",
+      "source_sha256": "a4aa2826e7964af529bd85d5743f597360ec450b259c3ee47010151e0b071928"
+    },
+    {
+      "path": "src/generators/medgemma_gen.py",
+      "source_sha256": "72079da9a642e2e20797a78de4906d01e5ed1dc5d794a5fabdb6f0ec8af23a61"
+    },
+    {
+      "path": "src/generators/mock_gen.py",
+      "source_sha256": "00991e315e79fc65227f851e1c5a97fdc04682d59a3a2e4311d0ae9b3f934f41"
+    },
+    {
+      "path": "src/generators/multip_r2gen_gen.py",
+      "source_sha256": "48ddc2966d545c516b019586ad5752d59efbfe0d0c988a0c590c273557d2b296"
+    },
+    {
+      "path": "src/generators/nv_reason_cxr_gen.py",
+      "source_sha256": "88a219294fa751949c291e7a9594e0c8596e81e50a9d424f8f0bdb56f222f002"
+    },
+    {
+      "path": "src/generators/priorrg_gen.py",
+      "source_sha256": "9e88475358380af43c09d9d77470a2e8e5f0170895473f636d06cde343880c1f"
+    },
+    {
+      "path": "src/generators/r2gencmn_gen.py",
+      "source_sha256": "ffb60be1b9bd7e6d230e825b13260eb6cf010def3d50a56a4cd882630b21d619"
+    },
+    {
+      "path": "src/generators/r2gen_gen.py",
+      "source_sha256": "990434a390c0c8a1ffadbf21b7d47c70b793592e9d49ce45358fc8f664f7e6c5"
+    },
+    {
+      "path": "src/generators/radfm_gen.py",
+      "source_sha256": "c37595a98652b82cff83f90059ffb1131b12a1e74dba95965679c7f1d5c35504"
+    },
+    {
+      "path": "src/generators/radialog_gen.py",
+      "source_sha256": "a9a54828c5affb23f551ca2daf88107cafb27b50cf8b5628f17b709629648ad4"
+    },
+    {
+      "path": "src/generators/rad_infer_gen.py",
+      "source_sha256": "73360bd2f7e5d97eff41d8af1174c408d9ba41310f9745b36221ef54fcd09aba"
+    },
+    {
+      "path": "src/generators/__init__.py",
+      "source_sha256": "de6c1ae807a9800a8f55a8d8e11b12654371630caff75c7aaf0936d45e60f8a4"
+    },
+    {
+      "path": "scripts/manage_scfr_human_adjudication_release.py",
+      "source_relative_path": "scripts/manage_scfr_human_adjudication_release.py",
+      "source_sha256": "6caa7488f5a0bb82edbf19ec9bd9bdd7c141c48bc50a672f046cc830687dad8b"
+    },
+    {
+      "path": "scripts/prepare_scfr_human_adjudication_packet.py",
+      "source_relative_path": "scripts/prepare_scfr_human_adjudication_packet.py",
+      "source_sha256": "b43d240f533c1641804388bb3975f5e6f145d06b1841c42fe92a4f5df5915b54"
+    },
+    {
+      "path": "src/eval/scfr_blinded_reader.py",
+      "source_relative_path": "src/eval/scfr_blinded_reader.py",
+      "source_sha256": "a134cdad488c73bcfa938cbe06f45a0ac5f62c3993cb2f3e64f62eacf903c9d5"
+    },
+    {
+      "path": "models/scfr_controller_vectors_full_precision.json",
+      "source_relative_path": "paper/scfr_neurips2026_camera_ready_2026_09_25/scfr_controller_vectors_full_precision.json",
+      "source_sha256": "15d8a3a11c7fc436ee499f3213968ae31305c39db2dd5d8f3e86a20f809cb873"
+    },
+    {
+      "path": "scripts/build_scfr_publication_tables.py",
+      "source_git_commit": "3eef14cce5a3ff3b70babc611dc95378474623d6",
+      "source_relative_path": "scripts/build_scfr_publication_tables.py"
+    }
+  ],
+  "additional_dependency_closure": [
+    {
+      "path": "src/eval/scfr_proxy_cache.py",
+      "reason": "Read-only protected cache loader imported by copy/context analysis; source hash recorded in verification/source_sha256.json."
+    }
+  ],
+  "new_wrapper_paths": [
+    "scfr_release/",
+    "tests/test_release.py"
+  ],
+  "runtime_assets_included": false,
+  "raw_reports_or_images_included": false
+}

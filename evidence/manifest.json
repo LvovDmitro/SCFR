@@ -1,0 +1,137 @@
+{
+  "schema": "scfr-public-aggregate-evidence-manifest-v1",
+  "prepared_on": "2026-10-19",
+  "actor": "agent",
+  "author_approval": false,
+  "source_revision": "3eef14cce5a3ff3b70babc611dc95378474623d6",
+  "scope": "Allowlisted aggregate evidence only. No individual cases, reports, images, credentials, protected paths, or inference-input files.",
+  "files": [
+    {
+      "file": "panel_a_vs_current_5000.md",
+      "git_source": "reports/source_causal_p12_crossseed_seed1221_bootstrap5000_vs_current_2026_05_04.md",
+      "transformations": [
+        "Added provenance comment; not a new analysis."
+      ],
+      "privacy_check": {
+        "absolute_paths": 0,
+        "urls": 0,
+        "opaque_32_64_char_identifiers": 0,
+        "participant_rows": false
+      }
+    },
+    {
+      "file": "panel_a_vs_matched_5000.md",
+      "git_source": "reports/source_causal_p12_crossseed_seed1221_bootstrap5000_vs_matched_2026_05_04.md",
+      "transformations": [
+        "Added provenance comment; not a new analysis."
+      ],
+      "privacy_check": {
+        "absolute_paths": 0,
+        "urls": 0,
+        "opaque_32_64_char_identifiers": 0,
+        "participant_rows": false
+      }
+    },
+    {
+      "file": "panel_b_vs_current_5000.md",
+      "git_source": "reports/source_causal_p12_crossseed_seed911_bootstrap5000_vs_current_2026_05_04.md",
+      "transformations": [
+        "Added provenance comment; not a new analysis."
+      ],
+      "privacy_check": {
+        "absolute_paths": 0,
+        "urls": 0,
+        "opaque_32_64_char_identifiers": 0,
+        "participant_rows": false
+      }
+    },
+    {
+      "file": "panel_b_vs_matched_5000.md",
+      "git_source": "reports/source_causal_p12_crossseed_seed911_bootstrap5000_vs_matched_2026_05_04.md",
+      "transformations": [
+        "Added provenance comment; not a new analysis."
+      ],
+      "privacy_check": {
+        "absolute_paths": 0,
+        "urls": 0,
+        "opaque_32_64_char_identifiers": 0,
+        "participant_rows": false
+      }
+    },
+    {
+      "file": "panel_c_vs_current_5000.md",
+      "git_source": "reports/source_causal_p12_crossseed_locked1000_bootstrap5000_vs_current_2026_05_04.md",
+      "transformations": [
+        "Added provenance comment; not a new analysis."
+      ],
+      "privacy_check": {
+        "absolute_paths": 0,
+        "urls": 0,
+        "opaque_32_64_char_identifiers": 0,
+        "participant_rows": false
+      }
+    },
+    {
+      "file": "panel_c_vs_matched_5000.md",
+      "git_source": "reports/source_causal_p12_crossseed_locked1000_bootstrap5000_vs_matched_2026_05_04.md",
+      "transformations": [
+        "Added provenance comment; not a new analysis."
+      ],
+      "privacy_check": {
+        "absolute_paths": 0,
+        "urls": 0,
+        "opaque_32_64_char_identifiers": 0,
+        "participant_rows": false
+      }
+    },
+    {
+      "file": "confirmatory_gate_5000.md",
+      "git_source": "reports/source_causal_confirmatory_gate_bootstrap5000_2026_05_04.md",
+      "transformations": [
+        "Added provenance comment; not a new analysis."
+      ],
+      "privacy_check": {
+        "absolute_paths": 0,
+        "urls": 0,
+        "opaque_32_64_char_identifiers": 0,
+        "participant_rows": false
+      }
+    },
+    {
+      "file": "subject_exclusion_integrity.md",
+      "git_source": "reports/source_causal_p12_crossseed_leakage_audit_2026_05_04.md",
+      "transformations": [
+        "Added provenance comment; not a new analysis.",
+        "Omitted source-input section containing private generation-artifact filenames; retained complete aggregate integrity table."
+      ],
+      "privacy_check": {
+        "absolute_paths": 0,
+        "urls": 0,
+        "opaque_32_64_char_identifiers": 0,
+        "participant_rows": false
+      }
+    }
+  ],
+  "table_script_input_map": [
+    {
+      "table": "Source-arm and aligned controller tables",
+      "script": "scripts/analyze_source_causal_arms.py",
+      "aggregate_files": "panel_[abc]_vs_[current|matched]_5000.md",
+      "input_contract": "Private, licensed frozen report candidates/current/matched outputs; replicate on authorized local data only.",
+      "parameters": "5000 bootstrap replicates; subject cluster; current_only or matched_shuffled_prior baseline"
+    },
+    {
+      "table": "Holm-corrected primary family and point-estimate bounds",
+      "script": "scripts/source_causal_confirmatory_gate.py",
+      "aggregate_files": "confirmatory_gate_5000.md",
+      "input_contract": "Aggregate JSON pairs from the current and matched analyses for each panel; no individual rows required by gate."
+    },
+    {
+      "table": "Subject exclusion and exact train/evaluation counts",
+      "script": "scripts/audit_p12_crossseed_leakage.py",
+      "aggregate_files": "subject_exclusion_integrity.md",
+      "input_contract": "Private candidate pools; no row-level artifacts in this bundle."
+    }
+  ],
+  "interpretation": "Parity is an operational point-estimate check, not a confidence-interval proof of equivalence or noninferiority. The gate was retrospective governance, not preregistration. Panelwise FN increases versus matched wrong history remain visible."
+}
