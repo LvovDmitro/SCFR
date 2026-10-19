@@ -2,7 +2,11 @@
 
 Public code for **Source-Causal Control of Historical Context in Longitudinal Radiology Report Generation**, accepted at NeurIPS 2026 Main Track as a poster (paper 21649), by Dmitry Lvov and Ilya Pershin. SCFR constructs source-valid report proposals and routes among them without a reference report at inference. Repository: [LvovDmitro/SCFR](https://github.com/LvovDmitro/SCFR).
 
-The records under `verification/` describe the pre-publication code checks performed on 19 October 2026, including 41 passing tests. Their local-release-candidate wording records that earlier verification stage. The publication changes update this introduction and `CITATION.cff`; the verified algorithm and test files are unchanged.
+[NeurIPS paper page](https://neurips.cc/virtual/2026/poster/154092) · [OpenReview](https://openreview.net/forum?id=GHvYdC6tmg)
+
+![Historical context and a fixed current chest examination feed a report generator; the audit changes history to examine which findings appear in the current report.](assets/scfr_problem_v2.png)
+
+*Illustrative public-domain radiograph and schematic report cards, unrelated to study cases. [Image credit and provenance](assets/README.md).*
 
 The original code snapshot is preserved under `scripts/`, `src/`, `train/`, and `utils/`. The `scfr_release` wrapper adds explicit fitting, reference-free inference, and separate evaluation interfaces. `SOURCE_MANIFEST.json` records the source revision, dirty-worktree file hashes, and release paths. Source line endings are normalized to UTF-8/LF; algorithm files are otherwise unchanged.
 
@@ -50,7 +54,9 @@ The verifier's 0/2 limits constrain appended text. If filtering leaves no text, 
 
 [REPRODUCIBILITY.md](REPRODUCIBILITY.md) maps paper components and tables to the actual source entrypoints and required inputs. [CLI_INVENTORY.json](CLI_INVENTORY.json) lists parser options extracted from the shipped source. Every script also supports `--help` when its optional dependencies are installed.
 
-No raw reports, images, private IDs, reader responses, signing keys, trained neural weights, or restricted dataset manifests are included. Real-data reproduction requires the relevant dataset authorization, original subject-disjoint splits, frozen generator revisions, protected arm outputs, and fitted component assets. The local tests do not verify GPU generation or reproduce the complete clinical-data experiments. See `verification/verification.json` for the exact checks performed and remaining boundaries.
+The records under `verification/` describe the pre-publication code checks performed on 19 October 2026, including 41 passing tests. Their local-release-candidate wording records that earlier verification stage. Subsequent publication edits add paper links, an illustrative overview, and citation information; the verified algorithm and test files are unchanged.
+
+No patient reports, study images, private IDs, reader responses, signing keys, trained neural weights, or restricted dataset manifests are included. Real-data reproduction requires the relevant dataset authorization, original subject-disjoint splits, frozen generator revisions, protected arm outputs, and fitted component assets. The local tests do not verify GPU generation or reproduce the complete clinical-data experiments. See `verification/verification.json` for the exact checks performed and remaining boundaries.
 
 ## Data, models, and safety
 
