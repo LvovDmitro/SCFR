@@ -4,15 +4,15 @@ Code for [Source-Causal Control of Historical Context in Longitudinal Radiology 
 
 Historical context can help a radiology report generator, but it can also carry an old finding into the current report. SCFR holds the current examination fixed, audits sensitivity to historical sources, and learns to select among reports constructed from valid current and prior information. It uses no reference report or wrong-patient history at inference.
 
-![With the current examination fixed, changing historical context exposes findings carried over from the prior examination.](assets/scfr_problem_v4.png)
+![One current radiograph feeds the same generator with and without prior-report text; authored report excerpts differ in whether pleural effusion persists.](assets/scfr_problem_v7.png)
 
 ## How it works
 
-All three base reports describe the same current examination: `current_only` uses current images alone; `real_prior` uses current images, true prior images, and the true prior report; `prior_report_only` uses current images and the true prior report. The separate `prior_report` field holds the actual historical text. Two rerankers and two finding-verifier realizations produce alternative proposals. A linear router chooses between the current-only report and these four proposals using 19 text and source-consistency features. Wrong-history interventions are used only for analysis.
+All three base reports describe the same current examination: `current_only` uses current images alone; `real_prior` uses current images, true prior images, and the true prior report; `prior_report_only` uses current images and the true prior report. The separate `prior_report` field holds the actual historical text. Two rerankers and two finding-verifier realizations produce alternative proposals. A linear router chooses between the current-only report and these four proposals using 14 shared text features and five candidate indicators (19 features total). At inference, the router receives generated reports and valid prior text, with no image pixels, reference reports, or wrong-patient history. References supervise offline fitting; wrong-history interventions are used only for analysis.
 
-![SCFR builds source-valid report proposals and routes among five candidates without a reference report at inference.](assets/scfr_method_v4.png)
+![Three reports sharing the current image feed two rankers and two finding verifiers; five candidates then feed a 19-feature text-only linear router that returns one report unchanged.](assets/scfr_method_v7.png)
 
-Both figures are vector schematics. Examination labels and report snippets illustrate the method; they are not evaluated cases. [Figure sources](assets/README.md).
+Both figures are schematic examples with authored report excerpts, not observed model outputs or study records. The public radiograph supplies image context only; the excerpts are not clinical interpretations of it. [Figure sources and photo credit](assets/README.md).
 
 ## Quick start
 
