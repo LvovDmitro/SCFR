@@ -1,8 +1,6 @@
 {
   "schema": "scfr-public-aggregate-evidence-manifest-v1",
   "prepared_on": "2026-10-19",
-  "actor": "agent",
-  "author_approval": false,
   "source_revision": "3eef14cce5a3ff3b70babc611dc95378474623d6",
   "scope": "Allowlisted aggregate evidence only. No individual cases, reports, images, credentials, protected paths, or inference-input files.",
   "files": [

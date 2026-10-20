@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "scfr-camera-ready"
-version = "0.0.0"
-description = "Local SCFR camera-ready source release candidate (not published)"
+version = "0.1.0"
+description = "Source-causal report proposal construction and reference-free finding routing"
 readme = "README.md"
 requires-python = ">=3.10"
 license = {file = "LICENSE"}

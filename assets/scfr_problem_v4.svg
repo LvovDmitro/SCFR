@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="396pt" height="170pt" viewBox="0 0 396 170" role="img">
+<title>scfr problem v4</title>
+<desc>Schematic pleural-effusion carryover example, not an observed case. The assumed current exam has no effusion. With the same generator and current exam, a historical positive reappears in a report. No patient data, radiograph, model output, or radiologist judgment is depicted.</desc>
+<text x="0" y="12" font-family="Arial, sans-serif" font-size="10.7" font-weight="bold" fill="#263B40" text-anchor="start">Schematic case: historical carryover</text>
+<text x="0" y="40" font-family="Arial, sans-serif" font-size="9.5" font-weight="bold" fill="#263B40" text-anchor="start">Current exam</text>
+<text x="0" y="58" font-family="Arial, sans-serif" font-size="9.5" font-weight="normal" fill="#26786C" text-anchor="start">Effusion absent</text>
+<text x="0" y="93" font-family="Arial, sans-serif" font-size="9.5" font-weight="bold" fill="#263B40" text-anchor="start">Prior report</text>
+<rect x="0" y="102.1" width="97.464599609375" height="12.5" rx="1" fill="#F8EFEC" stroke="none" stroke-width="0.7"/>
+<text x="2" y="112" font-family="Arial, sans-serif" font-size="9.5" font-weight="normal" fill="#A36254" text-anchor="start">Small pleural effusion.</text>
+<line x1="105" y1="53" x2="127" y2="53" stroke="#263B40" stroke-width="0.85"/>
+<line x1="127" y1="53" x2="151" y2="53" stroke="#263B40" stroke-width="0.85"/>
+<line x1="148.02852456223616" y1="54.43538626256706" x2="151" y2="53" stroke="#263B40" stroke-width="0.85"/>
+<line x1="148.02852456223616" y1="51.56461373743294" x2="151" y2="53" stroke="#263B40" stroke-width="0.85"/>
+<line x1="127" y1="53" x2="127" y2="95" stroke="#263B40" stroke-width="0.85"/>
+<line x1="127" y1="95" x2="151" y2="95" stroke="#263B40" stroke-width="0.85"/>
+<line x1="148.02852456223616" y1="96.43538626256706" x2="151" y2="95" stroke="#263B40" stroke-width="0.85"/>
+<line x1="148.02852456223616" y1="93.56461373743294" x2="151" y2="95" stroke="#263B40" stroke-width="0.85"/>
+<line x1="105" y1="112" x2="151" y2="112" stroke="#A36254" stroke-width="0.85"/>
+<line x1="148.02852456223616" y1="113.43538626256706" x2="151" y2="112" stroke="#A36254" stroke-width="0.85"/>
+<line x1="148.02852456223616" y1="110.56461373743294" x2="151" y2="112" stroke="#A36254" stroke-width="0.85"/>
+<text x="158" y="40" font-family="Arial, sans-serif" font-size="9.5" font-weight="bold" fill="#26786C" text-anchor="start">Current-only report</text>
+<rect x="158" y="48.6" width="98.7783203125" height="14" rx="1" fill="#EDF5F1" stroke="none" stroke-width="0.7"/>
+<text x="160" y="60" font-family="Arial, sans-serif" font-size="11" font-weight="normal" fill="#26786C" text-anchor="start">No pleural effusion.</text>
+<line x1="158" y1="76" x2="396" y2="76" stroke="#DFE6E2" stroke-width="0.7"/>
+<text x="158" y="93" font-family="Arial, sans-serif" font-size="9.5" font-weight="bold" fill="#A36254" text-anchor="start">History-conditioned report</text>
+<rect x="158" y="101.6" width="109.166015625" height="14" rx="1" fill="#F8EFEC" stroke="none" stroke-width="0.7"/>
+<text x="160" y="113" font-family="Arial, sans-serif" font-size="11" font-weight="normal" fill="#A36254" text-anchor="start">Small pleural effusion</text>
+<text x="269.166015625" y="113" font-family="Arial, sans-serif" font-size="11" font-weight="normal" fill="#A36254" text-anchor="start">persists.</text>
+<line x1="0" y1="139" x2="396" y2="139" stroke="#AEBDB8" stroke-width="0.7"/>
+<text x="0" y="152" font-family="Arial, sans-serif" font-size="8.5" font-weight="normal" fill="#263B40" text-anchor="start">Source audit: fix the current exam; substitute matched or random wrong history.</text>
+<text x="0" y="167" font-family="Arial, sans-serif" font-size="8.5" font-weight="normal" fill="#657571" text-anchor="start">Measure report additions; assess current-image support separately.</text>
+</svg>

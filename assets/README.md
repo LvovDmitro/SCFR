@@ -1,7 +1,5 @@
-# Overview illustration
+# Method figures
 
-`scfr_problem_v2.png` illustrates historical carryover and the fixed-current-examination audit. The report cards are schematic facsimiles, not patient reports or model outputs. The radiograph is a public illustration unrelated to the study cases; it does not represent an evaluated participant or a temporal pair.
+`scfr_problem_v4.svg` illustrates historical carryover while the current examination stays fixed. `scfr_method_v4.svg` shows source-valid proposal construction and the five-candidate final router. The corresponding PNG files are raster exports for the repository README.
 
-The radiograph is **Chest Xray PA 3-8-2010.png**, by **Stillwaterising**, published on [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Chest_Xray_PA_3-8-2010.png) under the [CC0 1.0 Universal Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/). The inspected [source-page revision](https://commons.wikimedia.org/w/index.php?title=File:Chest_Xray_PA_3-8-2010.png&oldid=855679536) records this attribution and dedication.
-
-The overview uses proportional display scaling of the public radiograph, with no cropping, flipping, contrast, brightness, or anatomy edits. Report cards, arrows, and explanatory labels were drawn for the paper. No credentialed study image, clinical record, or participant-level annotation is included in this asset.
+Both figures are vector schematics made for this work. They contain examination labels and illustrative report snippets, with no clinical images, patient reports, or participant-level annotations.

@@ -20,3 +20,4 @@ checkpoints/
 *.jpeg
 *.png
 *.dcm
+!assets/*.png

@@ -1,4 +1,4 @@
-"""Local-only SCFR fitting, inference, aggregate evaluation and synthetic demo."""
+"""SCFR fitting, reference-free routing, evaluation, and synthetic-text demo."""
 import argparse
 import json
 from pathlib import Path
@@ -29,6 +29,11 @@ def main():
     infer.add_argument("--input", type=Path, required=True)
     infer.add_argument("--model", type=Path, required=True)
     infer.add_argument("--output", type=Path, required=True)
+    route = sub.add_parser("route", help="Route precomputed candidates with an archived final-router vector")
+    route.add_argument("--input", type=Path, required=True)
+    route.add_argument("--weights", type=Path, default=Path(__file__).resolve().parents[1] / "models" / "scfr_controller_vectors_full_precision.json")
+    route.add_argument("--panel", default="locked1000", choices=("seed911", "seed1221", "locked1000"))
+    route.add_argument("--output", type=Path, required=True)
     evaluate = sub.add_parser("evaluate", help="Evaluate keyed predictions against a separate local reference file")
     evaluate.add_argument("--predictions", type=Path, required=True)
     evaluate.add_argument("--references", type=Path, required=True)
@@ -41,6 +46,8 @@ def main():
         save(args.output, pipeline.train_bundle(load(args.input), min_samples=args.min_samples, component_split=args.component_split, meta_split=args.meta_split))
     elif args.command == "infer":
         save(args.output, pipeline.infer(load(args.input), load(args.model)))
+    elif args.command == "route":
+        save(args.output, pipeline.route_candidates(load(args.input), load(args.weights), args.panel))
     elif args.command == "evaluate":
         from scripts.analyze_source_causal_arms import row_scores
         refs = load(args.references)

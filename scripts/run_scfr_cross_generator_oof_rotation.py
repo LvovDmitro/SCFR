@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Run additive five-fold OOF validation of the frozen SCFR ranker.
 
-Row-level reports stay under --protected-root.  Only aggregate analyses and a
-validation receipt are emitted under rebuttal/results.
+Row-level reports stay under --protected-root. Only aggregate analyses and a
+validation receipt are emitted under --output-dir.
 """
 
 from __future__ import annotations
@@ -228,19 +228,25 @@ def validate_split(rows: list[dict[str, Any]]) -> dict[str, Any]:
 
 
 def main() -> int:
+    repo = Path(__file__).resolve().parents[1]
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--protected-root", required=True, type=Path)
+    parser.add_argument("--output-dir", required=True, type=Path,
+                        help="Directory for aggregate analyses and the validation receipt")
+    parser.add_argument("--weights-receipt", type=Path,
+                        default=repo / "models" / "scfr_controller_vectors_full_precision.json")
     parser.add_argument("--python-exe", default=sys.executable)
     parser.add_argument("--max-workers", type=int, default=8)
     parser.add_argument("--timebox-min", type=float, default=25.0)
     args = parser.parse_args()
 
-    repo = Path(__file__).resolve().parents[1]
-    results_dir = repo / "rebuttal" / "results"
+    results_dir = args.output_dir.resolve()
     work_root = args.protected_root / "oof5"
     status_path = work_root / "status.json"
     logs_dir = work_root / "logs"
-    weights = repo / "rebuttal" / "scfr_controller_fitted_vectors_recovered_2026_07.json"
+    weights = args.weights_receipt.resolve()
+    if not weights.is_file():
+        raise RuntimeError(f"Missing archived controller weights: {weights}")
     start = time.time()
     deadline = start + args.timebox_min * 60.0
     work_root.mkdir(parents=True, exist_ok=True)
@@ -455,6 +461,7 @@ def main() -> int:
             if time.time() > deadline:
                 raise TimeoutError("OOF timebox exceeded during fold analysis")
 
+    results_dir.mkdir(parents=True, exist_ok=True)
     aggregate_outputs: dict[str, dict[str, Any]] = {}
     for generator, rows in combined_rows.items():
         source_rows = load_rows(

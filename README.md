@@ -1,71 +1,97 @@
 # SCFR: Source-Causal Finding Router
 
-Public code for **Source-Causal Control of Historical Context in Longitudinal Radiology Report Generation**, accepted at NeurIPS 2026 Main Track as a poster (paper 21649), by Dmitry Lvov and Ilya Pershin. SCFR constructs source-valid report proposals and routes among them without a reference report at inference. Repository: [LvovDmitro/SCFR](https://github.com/LvovDmitro/SCFR).
+Code for [Source-Causal Control of Historical Context in Longitudinal Radiology Report Generation](https://neurips.cc/virtual/2026/poster/154092), by Dmitry Lvov and Ilya Pershin. NeurIPS 2026 Main Track, poster. [OpenReview](https://openreview.net/forum?id=GHvYdC6tmg).
 
-[NeurIPS paper page](https://neurips.cc/virtual/2026/poster/154092) · [OpenReview](https://openreview.net/forum?id=GHvYdC6tmg)
+Historical context can help a radiology report generator, but it can also carry an old finding into the current report. SCFR holds the current examination fixed, audits sensitivity to historical sources, and learns to select among reports constructed from valid current and prior information. It uses no reference report or wrong-patient history at inference.
 
-![Historical context and a fixed current chest examination feed a report generator; the audit changes history to examine which findings appear in the current report.](assets/scfr_problem_v2.png)
+![With the current examination fixed, changing historical context exposes findings carried over from the prior examination.](assets/scfr_problem_v4.png)
 
-*Illustrative public-domain radiograph and schematic report cards, unrelated to study cases. [Image credit and provenance](assets/README.md).*
+## How it works
 
-The original code snapshot is preserved under `scripts/`, `src/`, `train/`, and `utils/`. The `scfr_release` wrapper adds explicit fitting, reference-free inference, and separate evaluation interfaces. `SOURCE_MANIFEST.json` records the source revision, dirty-worktree file hashes, and release paths. Source line endings are normalized to UTF-8/LF; algorithm files are otherwise unchanged.
+All three base reports describe the same current examination: `current_only` uses current images alone; `real_prior` uses current images, true prior images, and the true prior report; `prior_report_only` uses current images and the true prior report. The separate `prior_report` field holds the actual historical text. Two rerankers and two finding-verifier realizations produce alternative proposals. A linear router chooses between the current-only report and these four proposals using 19 text and source-consistency features. Wrong-history interventions are used only for analysis.
 
-## Install and run
+![SCFR builds source-valid report proposals and routes among five candidates without a reference report at inference.](assets/scfr_method_v4.png)
 
-Python 3.10 or newer is required. Run from this directory. The base reranker demo uses only the standard library:
+Both figures are vector schematics. Examination labels and report snippets illustrate the method; they are not evaluated cases. [Figure sources](assets/README.md).
 
-```bash
-python -B -m scfr_release demo --output-dir outputs/base-demo
-```
+## Quick start
 
-For the full proposal/verifier/router path:
+Use Python 3.10 or newer. The CPU example needs no dataset, model download, or GPU:
 
 ```bash
+git clone https://github.com/LvovDmitro/SCFR.git
+cd SCFR
+python -m venv .venv
+source .venv/bin/activate
 python -m pip install -e ".[verifier]"
-python -B -m scfr_release demo --full --output-dir outputs/full-demo
+python -B -m scfr_release demo --full --output-dir outputs/demo
 python -B -m unittest discover -s tests -v
 ```
 
-The fixture contains wholly invented radiology-like text. It contains no patient records or images. Its deliberately small fitting grid checks software execution; it does not reproduce paper results, estimate clinical performance, or validate a clinical system. The fixture and smoke artifacts are generated locally, not downloaded.
+On Windows, activate with `.venv\Scripts\Activate.ps1`. The demo fits both proposal rerankers, both logistic verifiers, and the final router on synthetic text, then predicts four held-out examples. Its `receipt.json` records the software checks; `synthetic_model.json` and `predictions.json` contain the fitted bundle and selected reports. This checks fitting, JSON model export, and reference-free inference. A standard-library-only example is available with `demo` without `--full`.
 
-Optional extras are `analysis` for NumPy-based aggregate analyses and `corrector` for optional neural-corrector training. Model extras must be installed in separate environments: `maira2` pins Transformers 4.51.3, `medgemma` pins 5.6.2, and `chexagent` pins 4.40.0, following the original model-specific requirements. The `generators` extra contains shared adapter dependencies only; choose the model's Transformers environment separately. Do not combine the incompatible model extras. For MedGemma, the original GPU environment supplies PyTorch 2.4.1 and TorchVision 0.19.1; install the appropriate CUDA build separately. These GPU stacks were not installed or tested during release preparation. Additional model-specific dependencies and third-party repositories are not bundled; see `external/README.md`. There is no GPU or network requirement for the CPU demos after installing dependencies.
+## Use your own reports
 
-## Fit, construct proposals, infer, evaluate
+SCFR operates on already generated reports. An inference input is a JSON list:
 
-Training input is a JSON list. Each row needs a unique `id`, `subject_id`, `split`, `reference`, `current_only`, `real_prior`, `prior_report_only`, and optional valid `prior_report`. Use explicit, subject-disjoint `component_train`, `meta_train`, and `test` splits. The wrapper rejects subjects shared across splits and missing report coverage.
-
-```bash
-python -B -m scfr_release train --input /authorized/merged.json --output /authorized/model.json
-python -B -m scfr_release infer --input /authorized/inference.json --model /authorized/model.json --output /authorized/predictions.json
-python -B -m scfr_release evaluate --predictions /authorized/predictions.json --references /authorized/references.json --output /authorized/aggregate.json
+```json
+[
+  {
+    "id": "example-1",
+    "current_only": "No pleural effusion.",
+    "real_prior": "Pleural effusion is present.",
+    "prior_report_only": "Pleural effusion is present.",
+    "prior_report": "Pleural effusion was present."
+  }
+]
 ```
 
-Inference accepts only a string `id` (or `sample_id`), the three source-valid base reports, and optional string `prior_report`/`context`. Structured context or identifier payloads are rejected. References, wrong-history reports, images, clinical metadata, and other fields are rejected at this boundary. Keep the inference input separate from the reference file. Evaluation requires unique identical sample-ID sets. It reports the original 11-finding rule-based proxy metrics, which are not clinical ground truth.
+Training rows additionally need a nonempty `reference`, a `subject_id`, and a `split` of `component_train`, `meta_train`, or `test`. Subjects must not cross splits. Component proposals fit on `component_train`; the router fits on `meta_train`. The default minimum is 20 rows in each training split. Keep references out of inference files.
 
-The five candidates, in tie-breaking order, are current-only, a perceptron proposal fitted with FP weight .2, a perceptron proposal fitted with FP weight .8, and verifier realizations with append budgets 0 and 2. Both proposal perceptrons use FN weight .1. The final router uses FP/FN weights .2/.4. Perceptrons use 50 epochs, learning rate .05, averaged coefficients, and first-maximum tie-breaking. Proposal features and router features call the original implementation. Each verifier budget independently selects its logistic model and thresholds through the original `liblinear` fitting, interactions, threshold search, constraints, and natural-language realization. Model schema `scfr-portable-model-v2` explicitly exports `verifiers.verifier_t0` and `verifiers.verifier_t2`, including their budgets, coefficients, selected hyperparameters, and thresholds. It does not load pickle files. The earlier local-only shared-verifier schema is not accepted.
+```bash
+python -B -m scfr_release train --input /authorized/training.json --output /authorized/model.json
+python -B -m scfr_release infer --input /authorized/inference.json --model /authorized/model.json --output /authorized/predictions.json
+python -B -m scfr_release evaluate --predictions /authorized/predictions.json --references /authorized/references.json --output /authorized/metrics.json
+```
 
-Component models fit on `component_train`; the final router fits on `meta_train`. The portable wrapper follows the included OOF component configuration, including tuning verifier thresholds on the component-training split. It does not inspect `test` references during fitting. This configuration is a runnable refitting protocol, not a claim that newly fitted coefficients equal every archived paper model. Verifier constraint results are recorded in the model; an unsatisfied constraint is a diagnostic result, not permission to claim a passed clinical or paper gate.
+`/authorized` means your access-controlled storage. The reference file is a JSON list of `{"id": "example-1", "reference": "..."}` objects. Evaluation requires identical, unique ID sets and reports the paper's 11-finding rule-based proxy metrics. These are not clinical ground truth.
 
-The verifier's 0/2 limits constrain appended text. If filtering leaves no text, the original implementation returns a canonical fallback without applying that append limit. This behavior is retained and tested.
+### Archived final-router weights
 
-`models/scfr_controller_vectors_full_precision.json` contains the archived final-router vectors already provided with the manuscript. They are insufficient for end-to-end frozen inference without the corresponding fitted proposal/verifier models. Do not substitute new component fits and describe that as an exact frozen-model replay. The cross-generator OOF experiment refits component proposals on three folds, uses one fold for the deployment gate, tests on the remaining fold, and keeps the final `locked1000` router fixed. The portable `train` command instead fits a new complete bundle; these are different procedures.
+[models/scfr_controller_vectors_full_precision.json](models/scfr_controller_vectors_full_precision.json) contains the three archived 19-coefficient final-router vectors. To use one with precomputed proposals, add `cand_fp02`, `cand_fp08`, `verifier_t0`, and `verifier_t2` report strings to each inference row:
 
-## Reproduction
+```bash
+python -B -m scfr_release route --input /authorized/candidates.json --panel locked1000 --output /authorized/selected.json
+```
 
-[REPRODUCIBILITY.md](REPRODUCIBILITY.md) maps paper components and tables to the actual source entrypoints and required inputs. [CLI_INVENTORY.json](CLI_INVENTORY.json) lists parser options extracted from the shipped source. Every script also supports `--help` when its optional dependencies are installed.
+Routing uses only the supplied reports and valid prior text. Paper panels map to the archived vector names as follows:
 
-The records under `verification/` describe the pre-publication code checks performed on 19 October 2026, including 41 passing tests. Their local-release-candidate wording records that earlier verification stage. Subsequent publication edits add paper links, an illustrative overview, and citation information; the verified algorithm and test files are unchanged.
+| Paper panel | `--panel` value |
+|---|---|
+| A | `seed1221` |
+| B | `seed911` |
+| C | `locked1000` |
 
-No patient reports, study images, private IDs, reader responses, signing keys, trained neural weights, or restricted dataset manifests are included. Real-data reproduction requires the relevant dataset authorization, original subject-disjoint splits, frozen generator revisions, protected arm outputs, and fitted component assets. The local tests do not verify GPU generation or reproduce the complete clinical-data experiments. See `verification/verification.json` for the exact checks performed and remaining boundaries.
+Use `train` to fit new proposal/verifier/router models. Applying an archived router to newly fitted proposals is a new fit, distinct from the historical experiment; the [reproduction guide](REPRODUCIBILITY.md#archived-router-inference) describes exact-replay inputs.
 
-## Data, models, and safety
+## Reproduce the experiments
 
-Acquire credentialed data through its official access process and comply with its data-use agreement. Do not redistribute MIMIC-CXR or other restricted images, reports, per-case predictions, answer keys, credentials, or identifying split manifests. Keep local working outputs in access-controlled storage. Share only reviewed aggregates. The reader-analysis entrypoints verify local protocol artifacts; the release contains their source code, not historical keys or responses.
+[REPRODUCIBILITY.md](REPRODUCIBILITY.md) gives the fitting settings, generator environments, input formats, and commands for each experiment. [evidence/](evidence/) contains reviewed aggregate comparison tables and their provenance. Every executable module documents its options with `--help`.
 
-Source-valid arms use current images, true prior images, and/or a valid prior report. `matched_shuffled_prior` is a reference-conditioned, wrong-patient analysis-only intervention. Its construction requires the original explicit acknowledgement flag. Neither wrong-history arm is accepted as a deployable inference feature by the release wrapper.
+The CPU workflow and tests run on synthetic text. Paper experiments require authorized MIMIC-CXR data and the corresponding historical model and study artifacts described in the guide. Patient data, per-case predictions, restricted split manifests, and reader responses are not distributed here.
 
-Use frozen, locally authorized model snapshots and `--local_files_only`/`--local-files-only` where offered. The original generator adapters may use `trust_remote_code=True`; inspect the pinned upstream model code before execution. This release performs no automatic login, model download, remote submission, or clinical deployment. Adapters are retained for reproducibility, including their original fallback behavior and optional third-party requirements.
+Use the official dataset access process and retain its data-use restrictions. Keep patient-derived reports and predictions in protected storage, including after removing identifiers. For model-specific dependencies, separate environments, and upstream-code licensing, see the [reproduction guide](REPRODUCIBILITY.md#generator-environments). This is research code, not a clinically validated system.
 
-## License and citation
+## Citation and license
 
-The [MIT license](LICENSE) is copied from the existing repository, including its original copyright attribution. It covers this repository's code only. Dataset, pretrained-model, and third-party-code licenses remain separate. No dataset, model, or third-party repository is relicensed here. `CITATION.cff` records confirmed paper metadata without inventing a DOI or public release date.
+```bibtex
+@inproceedings{lvov2026sourcecausal,
+  title={Source-Causal Control of Historical Context in Longitudinal Radiology Report Generation},
+  author={Lvov, Dmitry and Pershin, Ilya},
+  booktitle={Advances in Neural Information Processing Systems},
+  year={2026},
+  url={https://openreview.net/forum?id=GHvYdC6tmg}
+}
+```
+
+The code is [MIT licensed](LICENSE). Dataset, pretrained-model, and third-party-code licenses apply separately. Machine-readable citation metadata is in [CITATION.cff](CITATION.cff).

@@ -1,7 +1,7 @@
 """Fit/export proposals and route reports with the original SCFR functions.
 
 This wrapper separates fitting, reference-free inference, and evaluation.
-It does not generate images/reports, replace the verifier, or ship paper weights.
+It accepts generated reports and includes the archived final-router vectors.
 """
 from __future__ import annotations
 
@@ -70,6 +70,27 @@ def rank_report(row: Mapping[str, Any], model: Mapping[str, Any]) -> tuple[str, 
     scores = [ranker.dot(weights, ranker.candidate_features(row, arm, arms)) for arm in available]
     arm = available[ranker.argmax_index(scores)]
     return arm, row[arm]
+
+
+def route_candidates(rows: Sequence[Mapping[str, Any]], archive: Mapping[str, Any], panel: str = "locked1000") -> list[dict[str, Any]]:
+    """Apply an archived final router to already constructed source-valid reports."""
+    if panel not in archive["panels"]:
+        raise ValueError(f"Unknown archived router panel: {panel}")
+    model = {"candidate_arms": list(FINAL_ARMS), "feature_names": archive["feature_names"],
+             "weights": archive["panels"][panel]["weights"]}
+    outputs = []
+    seen = set()
+    for row in rows:
+        if set(row) - (INFERENCE_FIELDS | set(FINAL_ARMS)):
+            raise ValueError("routing accepts only IDs, valid prior text, and source-valid candidate reports")
+        validate_inference_row({k: v for k, v in row.items() if k in INFERENCE_FIELDS})
+        sample = row.get("id") or row["sample_id"]
+        if sample in seen:
+            raise ValueError("duplicate routing sample id")
+        seen.add(sample)
+        arm, report = rank_report(row, model)
+        outputs.append({"id": sample, "prediction": report, "selected_arm": arm})
+    return outputs
 
 
 def _verifier_report(row: Mapping[str, Any], frozen: Mapping[str, Any], delta: int) -> str:

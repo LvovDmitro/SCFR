@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="396pt" height="235pt" viewBox="0 0 396 235" role="img">
+<title>scfr method v4</title>
+<desc>SCFR deployment: three source-valid report generations, two separately fitted proposal rankers, two separately fitted verifiers, and the unchanged current-only bypass produce five candidates. A linear ranker with 19 text features selects one unchanged candidate. The report spans are schematic; no particular candidate or successful route is implied.</desc>
+<text x="0" y="12" font-family="Arial, sans-serif" font-size="10.7" font-weight="bold" fill="#263B40" text-anchor="start">SCFR: report proposals and text-only selection</text>
+<text x="0" y="32" font-family="Arial, sans-serif" font-size="9.5" font-weight="bold" fill="#26786C" text-anchor="start">1  Generate</text>
+<text x="112" y="32" font-family="Arial, sans-serif" font-size="9.5" font-weight="bold" fill="#26786C" text-anchor="start">2  Propose</text>
+<text x="246" y="32" font-family="Arial, sans-serif" font-size="9.5" font-weight="bold" fill="#26786C" text-anchor="start">3  Pool</text>
+<text x="333" y="32" font-family="Arial, sans-serif" font-size="9.5" font-weight="bold" fill="#26786C" text-anchor="start">4  Select</text>
+<text x="0" y="46" font-family="Arial, sans-serif" font-size="8.5" font-weight="normal" fill="#657571" text-anchor="start">Fixed G / 3 calls</text>
+<text x="112" y="46" font-family="Arial, sans-serif" font-size="8.5" font-weight="normal" fill="#657571" text-anchor="start">Text-only, frozen</text>
+<text x="246" y="46" font-family="Arial, sans-serif" font-size="8.5" font-weight="normal" fill="#657571" text-anchor="start">5 reports</text>
+<text x="333" y="46" font-family="Arial, sans-serif" font-size="8.5" font-weight="normal" fill="#657571" text-anchor="start">Text-only</text>
+<rect x="0" y="61" width="86" height="29" rx="2" fill="#FFFFFF" stroke="#AEBDB8" stroke-width="0.7"/>
+<rect x="6" y="69.5" width="9" height="12" rx="0.8" fill="#FFFFFF" stroke="#26786C" stroke-width="0.65"/>
+<line x1="7.5" y1="72.5" x2="13.5" y2="72.5" stroke="#26786C" stroke-width="0.5"/>
+<line x1="7.5" y1="75.5" x2="13.5" y2="75.5" stroke="#26786C" stroke-width="0.5"/>
+<line x1="7.5" y1="78.5" x2="11.5" y2="78.5" stroke="#26786C" stroke-width="0.5"/>
+<text x="20" y="72" font-family="Arial, sans-serif" font-size="8.5" font-weight="bold" fill="#263B40" text-anchor="start">Current-only</text>
+<text x="20" y="84" font-family="Arial, sans-serif" font-size="8.5" font-weight="normal" fill="#657571" text-anchor="start">no prior context</text>
+<rect x="0" y="105" width="86" height="29" rx="2" fill="#FFFFFF" stroke="#AEBDB8" stroke-width="0.7"/>
+<rect x="6" y="113.5" width="9" height="12" rx="0.8" fill="#FFFFFF" stroke="#26786C" stroke-width="0.65"/>
+<line x1="7.5" y1="116.5" x2="13.5" y2="116.5" stroke="#26786C" stroke-width="0.5"/>
+<line x1="7.5" y1="119.5" x2="13.5" y2="119.5" stroke="#26786C" stroke-width="0.5"/>
+<line x1="7.5" y1="122.5" x2="11.5" y2="122.5" stroke="#26786C" stroke-width="0.5"/>
+<text x="20" y="116" font-family="Arial, sans-serif" font-size="8.5" font-weight="bold" fill="#263B40" text-anchor="start">Full history</text>
+<text x="20" y="128" font-family="Arial, sans-serif" font-size="8.5" font-weight="normal" fill="#657571" text-anchor="start">image + report</text>
+<rect x="0" y="149" width="86" height="29" rx="2" fill="#FFFFFF" stroke="#AEBDB8" stroke-width="0.7"/>
+<rect x="6" y="157.5" width="9" height="12" rx="0.8" fill="#FFFFFF" stroke="#26786C" stroke-width="0.65"/>
+<line x1="7.5" y1="160.5" x2="13.5" y2="160.5" stroke="#26786C" stroke-width="0.5"/>
+<line x1="7.5" y1="163.5" x2="13.5" y2="163.5" stroke="#26786C" stroke-width="0.5"/>
+<line x1="7.5" y1="166.5" x2="11.5" y2="166.5" stroke="#26786C" stroke-width="0.5"/>
+<text x="20" y="160" font-family="Arial, sans-serif" font-size="8.5" font-weight="bold" fill="#263B40" text-anchor="start">Report history</text>
+<text x="20" y="172" font-family="Arial, sans-serif" font-size="8.5" font-weight="normal" fill="#657571" text-anchor="start">prior report only</text>
+<line x1="43" y1="61" x2="43" y2="53" stroke="#26786C" stroke-width="0.85"/>
+<line x1="43" y1="53" x2="232" y2="53" stroke="#26786C" stroke-width="0.85"/>
+<line x1="232" y1="53" x2="232" y2="72.7" stroke="#26786C" stroke-width="0.85"/>
+<line x1="232" y1="72.7" x2="246" y2="72.7" stroke="#26786C" stroke-width="0.85"/>
+<line x1="243.02852456223616" y1="74.13538626256707" x2="246" y2="72.7" stroke="#26786C" stroke-width="0.85"/>
+<line x1="243.02852456223616" y1="71.26461373743294" x2="246" y2="72.7" stroke="#26786C" stroke-width="0.85"/>
+<line x1="86" y1="75.5" x2="98" y2="75.5" stroke="#263B40" stroke-width="0.85"/>
+<line x1="86" y1="119.5" x2="98" y2="119.5" stroke="#263B40" stroke-width="0.85"/>
+<line x1="86" y1="163.5" x2="98" y2="163.5" stroke="#263B40" stroke-width="0.85"/>
+<line x1="98" y1="75.5" x2="98" y2="163.5" stroke="#263B40" stroke-width="0.85"/>
+<line x1="98" y1="85" x2="112" y2="85" stroke="#263B40" stroke-width="0.85"/>
+<line x1="109.02852456223617" y1="86.43538626256706" x2="112" y2="85" stroke="#263B40" stroke-width="0.85"/>
+<line x1="109.02852456223617" y1="83.56461373743294" x2="112" y2="85" stroke="#263B40" stroke-width="0.85"/>
+<line x1="98" y1="152.5" x2="112" y2="152.5" stroke="#263B40" stroke-width="0.85"/>
+<line x1="109.02852456223617" y1="153.93538626256705" x2="112" y2="152.5" stroke="#263B40" stroke-width="0.85"/>
+<line x1="109.02852456223617" y1="151.06461373743295" x2="112" y2="152.5" stroke="#263B40" stroke-width="0.85"/>
+<rect x="112" y="61" width="108" height="48" rx="2" fill="#F5F7F5" stroke="#AEBDB8" stroke-width="0.7"/>
+<text x="120" y="74" font-family="Arial, sans-serif" font-size="8.5" font-weight="bold" fill="#263B40" text-anchor="start">2 fitted rankers</text>
+<text x="120" y="89" font-family="Arial, sans-serif" font-size="8.5" font-weight="normal" fill="#26786C" text-anchor="start">FP weight .2</text>
+<text x="120" y="103" font-family="Arial, sans-serif" font-size="8.5" font-weight="normal" fill="#26786C" text-anchor="start">FP weight .8</text>
+<rect x="112" y="127" width="108" height="51" rx="2" fill="#F5F7F5" stroke="#AEBDB8" stroke-width="0.7"/>
+<text x="120" y="140" font-family="Arial, sans-serif" font-size="8.5" font-weight="bold" fill="#263B40" text-anchor="start">2 fitted verifiers</text>
+<text x="120" y="155" font-family="Arial, sans-serif" font-size="8.5" font-weight="normal" fill="#26786C" text-anchor="start">0-token append budget</text>
+<text x="120" y="169" font-family="Arial, sans-serif" font-size="8.5" font-weight="normal" fill="#26786C" text-anchor="start">2-token append budget</text>
+<line x1="220" y1="85" x2="232" y2="85" stroke="#26786C" stroke-width="0.85"/>
+<line x1="232" y1="85" x2="232" y2="96.1" stroke="#26786C" stroke-width="0.85"/>
+<line x1="232" y1="96.1" x2="246" y2="96.1" stroke="#26786C" stroke-width="0.85"/>
+<line x1="243.02852456223616" y1="97.53538626256706" x2="246" y2="96.1" stroke="#26786C" stroke-width="0.85"/>
+<line x1="243.02852456223616" y1="94.66461373743293" x2="246" y2="96.1" stroke="#26786C" stroke-width="0.85"/>
+<line x1="220" y1="101" x2="232" y2="101" stroke="#26786C" stroke-width="0.85"/>
+<line x1="232" y1="101" x2="232" y2="119.5" stroke="#26786C" stroke-width="0.85"/>
+<line x1="232" y1="119.5" x2="246" y2="119.5" stroke="#26786C" stroke-width="0.85"/>
+<line x1="243.02852456223616" y1="120.93538626256706" x2="246" y2="119.5" stroke="#26786C" stroke-width="0.85"/>
+<line x1="243.02852456223616" y1="118.06461373743294" x2="246" y2="119.5" stroke="#26786C" stroke-width="0.85"/>
+<line x1="220" y1="152" x2="232" y2="152" stroke="#26786C" stroke-width="0.85"/>
+<line x1="232" y1="152" x2="232" y2="142.9" stroke="#26786C" stroke-width="0.85"/>
+<line x1="232" y1="142.9" x2="246" y2="142.9" stroke="#26786C" stroke-width="0.85"/>
+<line x1="243.02852456223616" y1="144.33538626256706" x2="246" y2="142.9" stroke="#26786C" stroke-width="0.85"/>
+<line x1="243.02852456223616" y1="141.46461373743296" x2="246" y2="142.9" stroke="#26786C" stroke-width="0.85"/>
+<line x1="220" y1="167" x2="232" y2="167" stroke="#26786C" stroke-width="0.85"/>
+<line x1="232" y1="167" x2="232" y2="166.3" stroke="#26786C" stroke-width="0.85"/>
+<line x1="232" y1="166.3" x2="246" y2="166.3" stroke="#26786C" stroke-width="0.85"/>
+<line x1="243.02852456223616" y1="167.73538626256706" x2="246" y2="166.3" stroke="#26786C" stroke-width="0.85"/>
+<line x1="243.02852456223616" y1="164.86461373743296" x2="246" y2="166.3" stroke="#26786C" stroke-width="0.85"/>
+<rect x="246" y="61" width="61" height="117" rx="2" fill="#FFFFFF" stroke="#AEBDB8" stroke-width="0.7"/>
+<rect x="253" y="66.7" width="9" height="12" rx="0.8" fill="#FFFFFF" stroke="#26786C" stroke-width="0.65"/>
+<line x1="254.5" y1="69.7" x2="260.5" y2="69.7" stroke="#26786C" stroke-width="0.5"/>
+<line x1="254.5" y1="72.7" x2="260.5" y2="72.7" stroke="#26786C" stroke-width="0.5"/>
+<line x1="254.5" y1="75.7" x2="258.5" y2="75.7" stroke="#26786C" stroke-width="0.5"/>
+<text x="265" y="75.7" font-family="Arial, sans-serif" font-size="8.5" font-weight="bold" fill="#26786C" text-anchor="start">Current</text>
+<line x1="246" y1="84.4" x2="307" y2="84.4" stroke="#DFE6E2" stroke-width="0.6"/>
+<rect x="253" y="90.10000000000001" width="9" height="12" rx="0.8" fill="#FFFFFF" stroke="#26786C" stroke-width="0.65"/>
+<line x1="254.5" y1="93.10000000000001" x2="260.5" y2="93.10000000000001" stroke="#26786C" stroke-width="0.5"/>
+<line x1="254.5" y1="96.10000000000001" x2="260.5" y2="96.10000000000001" stroke="#26786C" stroke-width="0.5"/>
+<line x1="254.5" y1="99.10000000000001" x2="258.5" y2="99.10000000000001" stroke="#26786C" stroke-width="0.5"/>
+<text x="265" y="99.10000000000001" font-family="Arial, sans-serif" font-size="8.5" font-weight="bold" fill="#26786C" text-anchor="start">Recall</text>
+<line x1="246" y1="107.8" x2="307" y2="107.8" stroke="#DFE6E2" stroke-width="0.6"/>
+<rect x="253" y="113.5" width="9" height="12" rx="0.8" fill="#FFFFFF" stroke="#26786C" stroke-width="0.65"/>
+<line x1="254.5" y1="116.5" x2="260.5" y2="116.5" stroke="#26786C" stroke-width="0.5"/>
+<line x1="254.5" y1="119.5" x2="260.5" y2="119.5" stroke="#26786C" stroke-width="0.5"/>
+<line x1="254.5" y1="122.5" x2="258.5" y2="122.5" stroke="#26786C" stroke-width="0.5"/>
+<text x="265" y="122.5" font-family="Arial, sans-serif" font-size="8.5" font-weight="bold" fill="#26786C" text-anchor="start">Precision</text>
+<line x1="246" y1="131.2" x2="307" y2="131.2" stroke="#DFE6E2" stroke-width="0.6"/>
+<rect x="253" y="136.89999999999998" width="9" height="12" rx="0.8" fill="#FFFFFF" stroke="#26786C" stroke-width="0.65"/>
+<line x1="254.5" y1="139.89999999999998" x2="260.5" y2="139.89999999999998" stroke="#26786C" stroke-width="0.5"/>
+<line x1="254.5" y1="142.89999999999998" x2="260.5" y2="142.89999999999998" stroke="#26786C" stroke-width="0.5"/>
+<line x1="254.5" y1="145.89999999999998" x2="258.5" y2="145.89999999999998" stroke="#26786C" stroke-width="0.5"/>
+<text x="265" y="145.89999999999998" font-family="Arial, sans-serif" font-size="8.5" font-weight="bold" fill="#26786C" text-anchor="start">Strict</text>
+<line x1="246" y1="154.6" x2="307" y2="154.6" stroke="#DFE6E2" stroke-width="0.6"/>
+<rect x="253" y="160.29999999999998" width="9" height="12" rx="0.8" fill="#FFFFFF" stroke="#26786C" stroke-width="0.65"/>
+<line x1="254.5" y1="163.29999999999998" x2="260.5" y2="163.29999999999998" stroke="#26786C" stroke-width="0.5"/>
+<line x1="254.5" y1="166.29999999999998" x2="260.5" y2="166.29999999999998" stroke="#26786C" stroke-width="0.5"/>
+<line x1="254.5" y1="169.29999999999998" x2="258.5" y2="169.29999999999998" stroke="#26786C" stroke-width="0.5"/>
+<text x="265" y="169.29999999999998" font-family="Arial, sans-serif" font-size="8.5" font-weight="bold" fill="#26786C" text-anchor="start">Soft</text>
+<line x1="307" y1="119.5" x2="333" y2="119.5" stroke="#26786C" stroke-width="0.85"/>
+<line x1="330.02852456223616" y1="120.93538626256706" x2="333" y2="119.5" stroke="#26786C" stroke-width="0.85"/>
+<line x1="330.02852456223616" y1="118.06461373743294" x2="333" y2="119.5" stroke="#26786C" stroke-width="0.85"/>
+<rect x="333" y="61" width="63" height="70" rx="2" fill="#EDF5F1" stroke="#26786C" stroke-width="0.7"/>
+<text x="364.5" y="77" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#26786C" text-anchor="middle">19 text</text>
+<text x="364.5" y="89" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#26786C" text-anchor="middle">features</text>
+<line x1="340" y1="97" x2="389" y2="97" stroke="#AEBDB8" stroke-width="0.65"/>
+<text x="364.5" y="111" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#263B40" text-anchor="middle">Linear</text>
+<text x="364.5" y="123" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#263B40" text-anchor="middle">ranker</text>
+<line x1="364.5" y1="131" x2="364.5" y2="149" stroke="#26786C" stroke-width="0.85"/>
+<line x1="363.0646137374329" y1="146.02852456223616" x2="364.5" y2="149" stroke="#26786C" stroke-width="0.85"/>
+<line x1="365.9353862625671" y1="146.02852456223616" x2="364.5" y2="149" stroke="#26786C" stroke-width="0.85"/>
+<rect x="333" y="149" width="63" height="29" rx="2" fill="#FFFFFF" stroke="#26786C" stroke-width="0.7"/>
+<text x="364.5" y="161" font-family="Arial, sans-serif" font-size="8.5" font-weight="bold" fill="#26786C" text-anchor="middle">Report</text>
+<text x="364.5" y="173" font-family="Arial, sans-serif" font-size="8.5" font-weight="normal" fill="#26786C" text-anchor="middle">unchanged</text>
+<line x1="0" y1="187" x2="396" y2="187" stroke="#AEBDB8" stroke-width="0.7"/>
+<text x="0" y="201" font-family="Arial, sans-serif" font-size="8.5" font-weight="normal" fill="#657571" text-anchor="start">Schematic spans:</text>
+<rect x="78" y="192.1" width="77.23779296875" height="11.5" rx="1" fill="#EDF5F1" stroke="none" stroke-width="0.7"/>
+<text x="80" y="201" font-family="Arial, sans-serif" font-size="8.5" font-weight="normal" fill="#26786C" text-anchor="start">No pleural effusion.</text>
+<rect x="226" y="192.1" width="85.2646484375" height="11.5" rx="1" fill="#F8EFEC" stroke="none" stroke-width="0.7"/>
+<text x="228" y="201" font-family="Arial, sans-serif" font-size="8.5" font-weight="normal" fill="#A36254" text-anchor="start">Small pleural effusion</text>
+<text x="313.2646484375" y="201" font-family="Arial, sans-serif" font-size="8.5" font-weight="normal" fill="#A36254" text-anchor="start">persists.</text>
+<text x="0" y="218" font-family="Arial, sans-serif" font-size="8.5" font-weight="normal" fill="#263B40" text-anchor="start">Router: generated reports + valid prior text; no pixels or reference reports.</text>
+<text x="0" y="233" font-family="Arial, sans-serif" font-size="8.5" font-weight="normal" fill="#657571" text-anchor="start">Offline only: reference reports for fitting; wrong history for source audit.</text>
+</svg>
